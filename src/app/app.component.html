@@ -1,20 +1,40 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+  <h1>DICS online checking</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <span>Check đầu thể hiện tính cách
+        <strong>khi làm việc</strong>
+      </span>
+      <span style="display: block">Check đầu thể hiện tính cách
+        <strong>khi ở nhà</strong>
+      </span>
+      <table class="table">
+        <tr *ngFor="let row of data; let i = index" [ngStyle]="{'background': dataColors[i]}">
+          <td *ngFor="let col of row">{{col.val}}
+            <input type="checkbox" [(ngModel)]="col.work">
+            <input type="checkbox" [(ngModel)]="col.home">
+          </td>
+        </tr>
+      </table>
+      <button (click)="getResult()" class="btn btn-success float-right">Get result</button>
+    </div>
+  </div>
+  <div style="margin-top: 20px" class="row">
+    <div class="col-md-8 col-sm-12">
+      <div style="display: block">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+    <div *ngIf="message" class="col-md-4 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{messageTitle}}</strong>
+        </div>
+        <div class="card-body">
+          {{message}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
