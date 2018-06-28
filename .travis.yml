@@ -3,6 +3,8 @@ addons:
   chrome: stable
 
 language: nodejs
+nodejs:
+  - "8"
 
 branches:
   only:
