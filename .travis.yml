@@ -1,3 +1,7 @@
 language: nodejs
-rvm:
+
+before_script:
+- npm install -g @angular/cli
+
+script:
   - ng test
