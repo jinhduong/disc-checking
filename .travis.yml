@@ -2,6 +2,7 @@ language: nodejs
 
 before_script:
 - npm install -g @angular/cli
+- npm install
 
 script:
   - ng test
